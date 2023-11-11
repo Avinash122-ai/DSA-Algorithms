@@ -1,0 +1,15 @@
+//for every iteration find the min element and the place it in the ith index
+public static void selectionSort(int[] arr) {
+    int n = arr.length;
+    //i for get min of every index
+    for(int i=0;i<n-1;i++){
+//this loop is for finding the min against ith index
+        for(int j=i+1;j<n;j++){
+           if(arr[i]>arr[j]){
+              int temp = arr[i];
+              arr[i] = arr[j];
+              arr[j] = temp;
+          }
+        }
+    }
+}
