@@ -1,0 +1,35 @@
+public static void mergeSort(int[] arr, int l, int r){
+        divide(arr, l, r);
+    }
+    public static void divide(int[] arr,int l,int r){
+        if(l>=r){
+            return;
+        }
+        int m = (r+l)/2;
+        divide(arr, l, m);
+        divide(arr, m+1, r);
+        merge(arr, l, m, r);
+
+    }
+    public static void merge(int[] arr,int l,int m,int r){
+        ArrayList<Integer> temp = new ArrayList<>();
+        int left = l;
+        int right = m+1;
+        while(left<=m && right<=r){
+            if(arr[left]<=arr[right]){
+                temp.add(arr[left++]);
+
+            }else{
+                temp.add(arr[right++]);
+            }
+        }
+        while(left<=m){
+            temp.add(arr[left++]);
+        }
+        while(right<=r){
+             temp.add(arr[right++]);
+        }
+       for (int i = 0; i < temp.size(); i++) {
+            arr[l++] = temp.get(i);
+        }
+    }
